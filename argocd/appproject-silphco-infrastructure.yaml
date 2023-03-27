@@ -1,0 +1,23 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: silphco-infrastructure
+  namespace: argocd
+spec:
+  # Project description
+  description: Infrastructure supporting the Silph Co. site
+
+  # Allow manifests to deploy from any Git repos
+  sourceRepos:
+  - '*'
+
+  # All applications to be deployed to all namespaces on all servers
+  destinations:
+  - namespace: '*'
+    server: '*'
+
+  # Allow all resources
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'

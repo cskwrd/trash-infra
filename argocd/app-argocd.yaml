@@ -7,7 +7,7 @@ metadata:
 spec:
   destination:
     server: https://kubernetes.default.svc
-  project: default
+  project: silphco-infrastructure
   source:
     path: argocd
     repoURL: https://github.com/cskwrd/trash-infra.git

@@ -11,6 +11,7 @@ bases:
 resources:
 - ns-argocd.yaml
 - ingress-argocd-web-ui.yaml
+- appproject-silphco-infrastructure.yaml
 - app-argocd.yaml
 
 # changes to config maps
