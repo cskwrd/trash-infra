@@ -15,7 +15,7 @@ resources:
 
 # changes to config maps
 patchesStrategicMerge:
-- path: overlays/weaken-argocd-api-server.yaml
-- path: overlays/constrain-argocd-server-resources.yaml
-- path: overlays/enable-helm-chart-kustomization.yaml
-- path: overlays/configure-argo-cd-repo.yaml
+- overlays/weaken-argocd-api-server.yaml
+- overlays/constrain-argocd-server-resources.yaml
+- overlays/enable-helm-chart-kustomization.yaml
+- overlays/configure-argo-cd-repo.yaml
