@@ -1,0 +1,12 @@
+---
+# In order to easily modify helm chart output before it is deployed enable kustomize helm chart support (https://argo-cd.readthedocs.io/en/stable/user-guide/kustomize/#kustomizing-helm-charts)
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+data:
+  kustomize.buildOptions: --enable-helm

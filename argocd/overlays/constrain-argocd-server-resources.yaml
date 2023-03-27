@@ -1,0 +1,18 @@
+---
+# Argo CD uses a considerable amount of RAM. To keep it in check, apply memory limits to the the server container.
+# NOTE: It seems that there is an Argo CD StatefulSet that uses a lot of RAM as well, but there doesn't seem to be a way to set limits on it (that I have found).
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-server
+spec:
+  template:
+    spec:
+      containers:
+        - name: argocd-server
+          resources:
+            requests:
+              memory: 1Gi
+            limits:
+              memory: 2Gi
