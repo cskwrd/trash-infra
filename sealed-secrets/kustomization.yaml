@@ -4,3 +4,5 @@ resources:
   - ns-sealed-secrets.yaml
   - https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.20.2/controller.yaml
   - test-secret.yaml
+  - authentik-app-secrets.yaml
+  - authentik-postgresql-secrets.yaml
