@@ -18,7 +18,7 @@ spec:
       ref: values
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: silphco-infrastucture
+    namespace: silphco-infrastructure
   syncPolicy:
     automated:
       prune: true
