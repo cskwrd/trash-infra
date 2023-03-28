@@ -15,6 +15,7 @@ resources:
 - app-argocd.yaml
 - apps/sealed-secrets.yaml
 - apps/authentik.yaml
+- apps/namespace-manager.yaml
 
 # changes to config maps
 patchesStrategicMerge:

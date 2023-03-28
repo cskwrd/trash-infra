@@ -1,0 +1,17 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: namespace-manager
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: silphco-infrastucture
+  project: silphco-infrastructure
+  source:
+    path: additional-namespaces
+    repoURL: https://github.com/cskwrd/trash-infra.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
