@@ -9,8 +9,7 @@ bases:
 
 # additional resources like ingress rules, cluster and repository secrets.
 resources:
-- namespaces/argocd.yaml
-- namespaces/silphco-infrastructure.yaml
+- ns-argocd.yaml
 - ingress-argocd-web-ui.yaml
 - appproject-silphco-infrastructure.yaml
 - app-argocd.yaml
