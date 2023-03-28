@@ -1,0 +1,18 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: authentik
+  namespace: argocd
+spec:
+  project: silphco-infrastructure
+  source:
+    chart: authentik
+    repoURL: https://charts.goauthentik.io/
+    targetRevision: 2023.3.1
+    helm:
+      valueFiles:
+      - authentik/values.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    # namespace: kubeseal
