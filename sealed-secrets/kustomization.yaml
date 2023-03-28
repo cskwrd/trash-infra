@@ -3,3 +3,4 @@ namespace: sealed-secrets
 resources:
   - ns-sealed-secrets.yaml
   - https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.20.2/controller.yaml
+  - test-secret.yaml
