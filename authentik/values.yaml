@@ -17,8 +17,8 @@ authentik:
       enabled: false
       # -- This is a string that is sent to sentry with your error reports
       environment: "k3s"
-    postgresql:
-      port: 5432
+    # postgresql:
+    #   port: 5432
     redis:
       # -- set the redis hostname to talk to
       # @default -- `{{ .Release.Name }}-redis-master`
@@ -31,6 +31,11 @@ ingress:
       paths:
         - path: "/"
           pathType: Prefix
+
+postgresql:
+  enabled: true
+redis:
+  enabled: true
 
 envValueFrom:
   AUTHENTIK_SECRET_KEY:
