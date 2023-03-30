@@ -44,16 +44,10 @@ envValueFrom:
       key: secretKey
   AUTHENTIK_POSTGRESQL__PASSWORD:
     secretKeyRef:
-      name: authentik-postgresql-secrets
-      key: password
-  POSTGRES_POSTGRES_PASSWORD:
-    secretKeyRef:
-      name: authentik-postgresql-secrets
-      key: password
-  POSTGRES_PASSWORD:
-    secretKeyRef:
-      name: authentik-postgresql-secrets
-      key: password
+      # this value must come from the `postgresql-password` key in the `authentik-postgresql` secret
+      # the postgres chart seems to be hardcoded to look there
+      name: authentik-postgresql
+      key: postgresql-password
   # AUTHENTIK_EMAIL__PASSWORD:
   #   secretKeyRef:
   #     name: authentik-app-secrets
