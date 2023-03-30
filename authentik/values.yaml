@@ -34,8 +34,6 @@ ingress:
 
 postgresql:
   enabled: true
-  postgresqlPassword: "authentik-password"
-  postgresqlPostgresPassword: "postgres-password"
 redis:
   enabled: true
 
