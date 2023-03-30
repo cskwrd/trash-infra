@@ -26,6 +26,8 @@ authentik:
 
 ingress:
   enabled: true
+  annotations:
+    link.argocd.argoproj.io/external-link: https://authentik.silphco
   hosts:
     - host: authentik.silphco
       paths:
