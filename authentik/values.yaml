@@ -46,6 +46,14 @@ envValueFrom:
     secretKeyRef:
       name: authentik-postgresql-secrets
       key: password
+  POSTGRES_POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: authentik-postgresql-secrets
+      key: password
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: authentik-postgresql-secrets
+      key: password
   # AUTHENTIK_EMAIL__PASSWORD:
   #   secretKeyRef:
   #     name: authentik-app-secrets
