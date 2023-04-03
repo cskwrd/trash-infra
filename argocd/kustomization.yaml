@@ -14,7 +14,7 @@ resources:
 - appproject-silphco-infrastructure.yaml
 - app-argocd.yaml
 - apps/sealed-secrets.yaml
-# - apps/authentik.yaml
+- apps/authentik.yaml
 
 # changes to config maps
 patchesStrategicMerge:
