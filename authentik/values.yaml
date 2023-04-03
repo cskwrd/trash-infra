@@ -39,7 +39,7 @@ ingress:
 
 postgresql:
   enabled: true
-  existingSecret: true
+  existingSecret: authentik-postgresql-secrets
 redis:
   enabled: true
 
@@ -52,7 +52,7 @@ envValueFrom:
     secretKeyRef:
       # this value must come from the `postgresql-password` key in the `authentik-postgresql` secret
       # the postgres chart seems to be hardcoded to look there
-      name: authentik-postgresql
+      name: authentik-postgresql-secrets
       key: postgresql-password
   # AUTHENTIK_EMAIL__PASSWORD:
   #   secretKeyRef:
