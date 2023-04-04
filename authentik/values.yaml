@@ -1,3 +1,4 @@
+# to complete setup: https://authentik.silphco/if/flow/initial-setup/
 authentik:
     # -- Secret key used for cookie singing and unique user IDs,
     # don't change this after the first install
