@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: authentik
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: silphco-infrastructure
   sources:
