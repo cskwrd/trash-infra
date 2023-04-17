@@ -10,7 +10,7 @@ configMapGenerator:
     - bp.yaml
 
 helmChartInflationGenerator:
-- chartName: nginx
+- chartName: authentik
   chartRepoUrl: https://charts.goauthentik.io/
   chartVersion: 2023.3.1
   # override with these custom values
