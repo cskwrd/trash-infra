@@ -13,6 +13,8 @@ resources:
 - ingress/argocd-web-ui.yaml
 - projects/silphco-infrastructure.yaml
 - apps/argocd.yaml
+- apps/sealed-secrets.yaml
+- apps/authentik.yaml
 
 # changes to config maps
 patchesStrategicMerge:
