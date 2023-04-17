@@ -10,7 +10,7 @@ spec:
     namespace: argocd
   project: silphco-infrastructure
   source:
-    path: argocd
+    path: app-manager
     repoURL: https://github.com/cskwrd/trash-infra.git
     targetRevision: HEAD
   syncPolicy:
