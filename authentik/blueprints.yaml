@@ -18,3 +18,15 @@ data:
           username: gord
           name: "God™"
         state: present
+      # need to modify the policy that checks whether the admin user password needs updating
+      # the check relies on the username which is changed above
+      - model: authentik_policies_expression.expressionpolicy
+        identifiers:
+          name: default-oobe-password-usable
+        attrs:
+          expression: |
+            # This policy ensures that the setup flow can only be
+            # executed when the admin user doesn''t have a password set
+            akadmin = ak_user_by(username="akadmin")
+            return not akadmin.has_usable_password()
+        state: present
