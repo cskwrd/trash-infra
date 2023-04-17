@@ -2,16 +2,17 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+# namespace must be specified here so kustomize doesn't override the namespaces in the helm chart and thus allowing the resources to find everything they depend on
 namespace: silphco-infrastructure
 
-# custom index.html page
-configMapGenerator:
-- name: authentik-blueprints-cm
-  namespace: silphco-infrastructure
-  files:
-    - bp.yaml
-generatorOptions:
-  disableNameSuffixHash: true # use a static name
+# # custom configMap from yaml file
+# configMapGenerator:
+# - name: authentik-blueprints-cm
+#   namespace: silphco-infrastructure
+#   files:
+#     - bp.yaml
+# generatorOptions:
+#   disableNameSuffixHash: true # use a static name, without this kustomize appends a hash to the end of the configmap's name
 
 helmChartInflationGenerator:
 - chartName: authentik

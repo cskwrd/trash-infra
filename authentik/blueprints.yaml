@@ -1,0 +1,20 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: authentik-blueprints-cm
+data:
+  reconfigure-admin-user.yaml: |-
+    version: 1
+    metadata::
+      labels:
+        blueprints.goauthentik.io/description: Update admin user's user info
+      name: Users - Modify superuser user data
+    entries:
+      - model: authentik_core.user
+        identifiers:
+          pk: 1
+        attrs:
+          username: gord
+          name: "God™"
+        state: present
