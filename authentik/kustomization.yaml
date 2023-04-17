@@ -14,5 +14,6 @@ helmChartInflationGenerator:
   chartRepoUrl: https://charts.goauthentik.io/
   chartVersion: 2023.3.1
   releaseName: authentik
+  releaseNamespace: silphco-infrastructure
   # override with these custom values
   values: values.yaml
