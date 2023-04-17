@@ -11,6 +11,11 @@ data:
         blueprints.goauthentik.io/description: Update admin user's user info
       name: Users - Modify superuser user data
     entries:
+      - model: authentik_blueprints.metaapplyblueprint
+        attrs:
+          identifiers:
+            name: Default - Out-of-box-experience flow
+          required: true
       - model: authentik_core.user
         identifiers:
           pk: 1
