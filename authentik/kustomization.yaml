@@ -8,6 +8,8 @@ configMapGenerator:
   namespace: silphco-infrastructure
   files:
     - bp.yaml
+generatorOptions:
+  disableNameSuffixHash: true # use a static name
 
 helmChartInflationGenerator:
 - chartName: authentik
