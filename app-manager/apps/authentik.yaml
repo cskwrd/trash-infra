@@ -1,26 +1,46 @@
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: authentik
+#   namespace: argocd
+#   # finalizers:
+#   #   - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: silphco-infrastructure
+#   sources:
+#     - chart: authentik
+#       repoURL: https://charts.goauthentik.io/
+#       targetRevision: 2023.3.1
+#       helm:
+#         valueFiles:
+#         - $values/authentik/values.yaml
+#     - repoURL: https://github.com/cskwrd/trash-infra.git
+#       targetRevision: HEAD
+#       ref: values
+#   destination:
+#     server: "https://kubernetes.default.svc"
+#     namespace: silphco-infrastructure
+#   syncPolicy:
+#     automated:
+#       prune: true
+#     syncOptions:
+#     - CreateNamespace=true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: authentik
   namespace: argocd
-  # finalizers:
-  #   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: silphco-infrastructure
-  sources:
-    - chart: authentik
-      repoURL: https://charts.goauthentik.io/
-      targetRevision: 2023.3.1
-      helm:
-        valueFiles:
-        - $values/authentik/values.yaml
-    - repoURL: https://github.com/cskwrd/trash-infra.git
-      targetRevision: HEAD
-      ref: values
   destination:
-    server: "https://kubernetes.default.svc"
+    server: https://kubernetes.default.svc
     namespace: silphco-infrastructure
+  project: silphco-infrastructure
+  source:
+    path: authentik
+    repoURL: https://github.com/cskwrd/trash-infra.git
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true

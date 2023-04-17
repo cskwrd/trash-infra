@@ -58,3 +58,6 @@ envValueFrom:
   #   secretKeyRef:
   #     name: authentik-app-secrets
   #     key: email-password
+
+blueprints:
+  - authentik-blueprints-cm
