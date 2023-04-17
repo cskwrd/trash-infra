@@ -9,6 +9,7 @@ metadata:
 spec:
   destination:
     server: https://kubernetes.default.svc
+    namespace: argocd
   project: silphco-infrastructure
   source:
     path: argocd
