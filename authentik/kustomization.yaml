@@ -5,6 +5,9 @@ kind: Kustomization
 # namespace must be specified here so kustomize doesn't override the namespaces in the helm chart and thus allowing the resources to find everything they depend on
 namespace: silphco-infrastructure
 
+resources:
+  - blueprints.yaml
+
 # # custom configMap from yaml file
 # configMapGenerator:
 # - name: authentik-blueprints-cm
