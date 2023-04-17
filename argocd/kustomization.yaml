@@ -9,12 +9,10 @@ bases:
 
 # additional resources like ingress rules, cluster and repository secrets.
 resources:
-- ns-argocd.yaml
-- ingress-argocd-web-ui.yaml
-- appproject-silphco-infrastructure.yaml
-- app-argocd.yaml
-- apps/sealed-secrets.yaml
-- apps/authentik.yaml
+- namespaces/argocd.yaml
+- ingress/argocd-web-ui.yaml
+- projects/silphco-infrastructure.yaml
+- apps/argocd.yaml
 
 # changes to config maps
 patchesStrategicMerge:
