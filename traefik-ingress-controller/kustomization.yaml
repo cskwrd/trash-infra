@@ -8,6 +8,7 @@ resources:
   - middlewares/avg-100-burst-50-limit.yaml
   - middlewares/chains/authentik-auth.yaml
   - middlewares/chains/no-auth.yaml
+  - middlewares/forward-auth-authentik.yaml
   - middlewares/https-redirect.yaml
   - middlewares/strip-host-prefix.yaml
   - ingress/dashboard-access.yaml
