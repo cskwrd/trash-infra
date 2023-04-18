@@ -20,7 +20,7 @@ resources:
 helmChartInflationGenerator:
 - chartName: authentik
   chartRepoUrl: https://charts.goauthentik.io/
-  chartVersion: 2023.3.1
+  chartVersion: 2023.4.0
   releaseName: authentik
   # override with these custom values
   values: values.yaml
