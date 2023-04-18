@@ -60,4 +60,4 @@ envValueFrom:
   #     key: email-password
 
 blueprints:
-  - z-authentik-blueprints-cm
+  - authentik-blueprints-cm
