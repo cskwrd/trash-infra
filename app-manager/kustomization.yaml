@@ -6,3 +6,4 @@ resources:
   - apps/self.yaml
   - apps/sealed-secrets.yaml
   - apps/authentik.yaml
+  - apps/traefik-ingress-controller.yaml

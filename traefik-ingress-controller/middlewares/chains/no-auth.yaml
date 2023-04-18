@@ -1,0 +1,11 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: no-auth-chain
+  namespace: traefik
+spec:
+  chain:
+    middlewares:
+    - name: avg-100-burst-50-limit
+    - name: add-secure-headers

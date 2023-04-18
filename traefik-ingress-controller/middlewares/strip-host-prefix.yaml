@@ -1,0 +1,10 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: strip-host-prefix
+  namespace: traefik
+spec:
+  stripPrefixRegex:
+    regex:
+      - "/[^/]+"

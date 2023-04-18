@@ -1,0 +1,29 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: add-secure-headers
+  namespace: traefik
+spec:
+  headers:
+    accessControlAllowMethods:
+      - "GET"
+      - "OPTIONS"
+      - "PUT"
+    accessControlAllowOriginList:
+      - "https://authentik.silphco"
+    accessControlMaxAge: 100
+    addVaryHeader: true
+    hostsProxyHeaders:
+      - "X-Forwarded-Host"
+    stsSeconds: 63072000
+    stsIncludeSubdomains: true
+    stsPreload: true
+    forceSTSHeader: true
+    contentTypeNosniff: true
+    browserXssFilter: true
+    referrerPolicy: "same-origin"
+    permissionsPolicy: "camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'; usb 'none'; vr 'none';"
+    customResponseHeaders:
+      X-Robots-Tag: "none,noarchive,nosnippet,notranslate,noimageindex,"
+      server: ""
