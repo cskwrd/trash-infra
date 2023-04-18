@@ -6,7 +6,7 @@ metadata:
 data:
   reconfigure-admin-user.yaml: |-
     version: 1
-    metadata::
+    metadata:
       labels:
         blueprints.goauthentik.io/description: Update admin user's user info
       name: Users - Modify superuser user data
