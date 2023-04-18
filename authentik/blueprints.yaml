@@ -27,11 +27,24 @@ data:
       # the check relies on the username which is changed above
       - model: authentik_policies_expression.expressionpolicy
         identifiers:
+          name: default-oobe-prefill-user
+        attrs:
+          expression: |
+            # This policy sets the user for the currently running flow
+            # by injecting "pending_user"
+            akadmin = ak_user_by(pk=1)
+            context["flow_plan"].context["pending_user"] = akadmin
+            return True
+        state: present
+      # need to modify the policy that checks whether the admin user password needs updating
+      # the check relies on the username which is changed above
+      - model: authentik_policies_expression.expressionpolicy
+        identifiers:
           name: default-oobe-password-usable
         attrs:
           expression: |
             # This policy ensures that the setup flow can only be
-            # executed when the admin user doesn''t have a password set
+            # executed when the admin user doesn't have a password set
             akadmin = ak_user_by(pk=1)
             return not akadmin.has_usable_password()
         state: present
