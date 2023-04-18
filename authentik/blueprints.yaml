@@ -16,6 +16,12 @@ data:
           identifiers:
             name: Default - Out-of-box-experience flow
           required: true
+      - model: authentik_blueprints.blueprintinstance
+        identifiers:
+          path: default/flow-oobe.yaml
+        attrs:
+          enabled: false
+        state: present
       - model: authentik_core.user
         identifiers:
           pk: 1
