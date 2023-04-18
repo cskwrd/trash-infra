@@ -32,6 +32,6 @@ data:
           expression: |
             # This policy ensures that the setup flow can only be
             # executed when the admin user doesn''t have a password set
-            akadmin = ak_user_by(username="akadmin")
+            akadmin = ak_user_by(pk=1)
             return not akadmin.has_usable_password()
         state: present
