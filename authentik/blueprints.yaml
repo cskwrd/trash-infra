@@ -11,46 +11,64 @@ data:
         blueprints.goauthentik.io/description: Update admin user's user info
       name: Users - Modify superuser user data
     entries:
-      - model: authentik_blueprints.metaapplyblueprint
-        attrs:
+      - attrs:
           identifiers:
             name: Default - Out-of-box-experience flow
           required: true
-      - model: authentik_blueprints.blueprintinstance
+        model: authentik_blueprints.metaapplyblueprint
+      # there isn't currently a way to apply blueprints in a deterministic manner (https://github.com/goauthentik/authentik/issues/4945)
+      # so we use the metaapplyblueprint above to apply the default blueprint
+      # then we disable it so it won't be applied again on its own
+      - attrs:
+          enabled: false
         identifiers:
           path: default/flow-oobe.yaml
-        attrs:
-          enabled: false
+        model: authentik_blueprints.blueprintinstance
         state: present
-      - model: authentik_core.user
-        identifiers:
-          pk: 1
-        attrs:
+      - attrs:
           username: gord
           name: "God™"
+        identifiers:
+          pk: 1
+        model: authentik_core.user
         state: present
       # need to modify the policy that checks whether the admin user password needs updating
       # the check relies on the username which is changed above
-      - model: authentik_policies_expression.expressionpolicy
-        identifiers:
-          name: default-oobe-prefill-user
-        attrs:
+      - attrs:
           expression: |
             # This policy sets the user for the currently running flow
             # by injecting "pending_user"
             akadmin = ak_user_by(pk=1)
             context["flow_plan"].context["pending_user"] = akadmin
             return True
+        identifiers:
+          name: default-oobe-prefill-user
+        model: authentik_policies_expression.expressionpolicy
         state: present
       # need to modify the policy that checks whether the admin user password needs updating
       # the check relies on the username which is changed above
-      - model: authentik_policies_expression.expressionpolicy
-        identifiers:
-          name: default-oobe-password-usable
-        attrs:
+      - attrs:
           expression: |
             # This policy ensures that the setup flow can only be
             # executed when the admin user doesn't have a password set
             akadmin = ak_user_by(pk=1)
             return not akadmin.has_usable_password()
+        identifiers:
+          name: default-oobe-password-usable
+        model: authentik_policies_expression.expressionpolicy
+        state: present
+      - attrs:
+          order: 100
+          placeholder: Welcome to authentik! Please set a password for the default admin
+            user, akadmin.
+          placeholder_expression: false
+          required: true
+          sub_text: ''
+          type: static
+          field_key: oobe-header-text
+          label: oobe-header-text
+        id: prompt-field-header
+        identifiers:
+          name: initial-setup-field-header
+        model: authentik_stages_prompt.prompt
         state: present
