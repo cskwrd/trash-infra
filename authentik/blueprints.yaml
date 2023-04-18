@@ -85,8 +85,9 @@ data:
         model: authentik_blueprints.metaapplyblueprint
       - attrs:
           authorization_flow: !Find [authentik_flows.flow, [slug, default-provider-authorization-implicit-consent]]
-          external_host: "https://authentik.silphco"
           cookie_domain: "silphco"
+          external_host: "https://authentik.silphco"
+          mode: forward_domain
         id: provider
         identifiers:
           name: domain-wide-forward-auth-provider
