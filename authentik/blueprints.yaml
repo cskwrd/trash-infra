@@ -70,3 +70,45 @@ data:
           name: initial-setup-field-header
         model: authentik_stages_prompt.prompt
         state: present
+
+  create-domain-level-forward-auth-catch-all.yaml: |-
+    version: 1
+    metadata:
+      labels:
+        blueprints.goauthentik.io/description: Manange configuration responsible for the domain-wide forward auth catch all
+      name: Providers - Manage Domain-wide Forward Auth Catch All
+    entries:
+      - attrs:
+          identifiers:
+            name: Default - Authentication flow
+          required: true
+        model: authentik_blueprints.metaapplyblueprint
+      - attrs:
+          authorization_flow: !Find [authentik_flows.flow, [slug, default-provider-authorization-implicit-consent]]
+          external_host: "https://authentik.silphco"
+          cookie_domain: "silphco"
+        id: provider
+        identifiers:
+          name: domain-wide-forward-auth-provider
+        model: authentik_providers_proxy.proxyprovider
+        state: present
+      - attrs:
+          name: some application or service provided by Silph Co
+          policy_engine_mode: any
+          provider: !KeyOf provider
+        id: app
+        identifiers:
+          slug: some-application-or-service-provided-by-silph-co
+        model: authentik_core.application
+        state: present
+      - attrs:
+          config:
+            authentik_host: https://authentik.silphco/
+          providers:
+          - !KeyOf provider
+          type: proxy
+        id: outpost
+        identifiers:
+          name: authentik Embedded Outpost
+        model: authentik_outposts.outpost
+        state: present
