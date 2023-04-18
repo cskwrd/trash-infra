@@ -59,15 +59,13 @@ data:
         state: present
       - attrs:
           order: 100
-          placeholder: Welcome to authentik! Please set a password for the default admin
-            user, akadmin.
+          placeholder: Please set a password for the default admin user, gord.
           placeholder_expression: false
           required: true
           sub_text: ''
           type: static
           field_key: oobe-header-text
           label: oobe-header-text
-        id: prompt-field-header
         identifiers:
           name: initial-setup-field-header
         model: authentik_stages_prompt.prompt
