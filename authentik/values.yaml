@@ -29,12 +29,12 @@ authentik:
 ingress:
   enabled: true
   # annotations:
-  #   link.argocd.argoproj.io/external-link: https://authentik.silphco
+  #   link.argocd.argoproj.io/external-link: https://authentik.wanlord.duckdns.org
   tls:
     - hosts:
-        - authentik.silphco
+        - authentik.wanlord.duckdns.org
   hosts:
-    - host: authentik.silphco
+    - host: authentik.wanlord.duckdns.org
       paths:
         - path: "/"
           pathType: Prefix

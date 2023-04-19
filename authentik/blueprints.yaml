@@ -85,8 +85,8 @@ data:
         model: authentik_blueprints.metaapplyblueprint
       - attrs:
           authorization_flow: !Find [authentik_flows.flow, [slug, default-provider-authorization-implicit-consent]]
-          cookie_domain: "silphco"
-          external_host: "https://authentik.silphco"
+          cookie_domain: "wanlord.duckdns.org"
+          external_host: "https://authentik.wanlord.duckdns.org"
           mode: forward_domain
         id: provider
         identifiers:
@@ -104,7 +104,7 @@ data:
         state: present
       - attrs:
           config:
-            authentik_host: https://authentik.silphco/
+            authentik_host: https://authentik.wanlord.duckdns.org/
           providers:
           - !KeyOf provider
           type: proxy

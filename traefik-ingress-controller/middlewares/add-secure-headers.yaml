@@ -11,7 +11,7 @@ spec:
       - "OPTIONS"
       - "PUT"
     accessControlAllowOriginList:
-      - "https://authentik.silphco"
+      - "https://authentik.wanlord.duckdns.org"
     accessControlMaxAge: 100
     addVaryHeader: true
     hostsProxyHeaders:
