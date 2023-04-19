@@ -1,29 +1,30 @@
 # to complete setup: https://authentik.silphco/if/flow/initial-setup/
 authentik:
-    # -- Secret key used for cookie singing and unique user IDs,
-    # don't change this after the first install
-    # pulled in from secrets
-    secret_key: ""
-    # -- Mode for the avatars. Defaults to gravatar. Possible options 'gravatar' and 'none'
-    avatars: none
-    outposts:
-      # -- Template used for managed outposts. The following placeholders can be used
-      # %(type)s - the type of the outpost
-      # %(version)s - version of your authentik install
-      # %(build_hash)s - only for beta versions, the build hash of the image
-      container_image_base: ghcr.io/goauthentik/%(type)s:%(version)s
-    error_reporting:
-      # -- This sends anonymous usage-data, stack traces on errors and
-      # performance data to sentry.beryju.org, and is fully opt-in
-      enabled: false
-      # -- This is a string that is sent to sentry with your error reports
-      environment: "k3s"
-    # postgresql:
-    #   port: 5432
-    redis:
-      # -- set the redis hostname to talk to
-      # @default -- `{{ .Release.Name }}-redis-master`
-      host: '{{ .Release.Name }}-redis-master'
+  log_level: trace
+  # -- Secret key used for cookie singing and unique user IDs,
+  # don't change this after the first install
+  # pulled in from secrets
+  secret_key: ""
+  # -- Mode for the avatars. Defaults to gravatar. Possible options 'gravatar' and 'none'
+  avatars: none
+  outposts:
+    # -- Template used for managed outposts. The following placeholders can be used
+    # %(type)s - the type of the outpost
+    # %(version)s - version of your authentik install
+    # %(build_hash)s - only for beta versions, the build hash of the image
+    container_image_base: ghcr.io/goauthentik/%(type)s:%(version)s
+  error_reporting:
+    # -- This sends anonymous usage-data, stack traces on errors and
+    # performance data to sentry.beryju.org, and is fully opt-in
+    enabled: false
+    # -- This is a string that is sent to sentry with your error reports
+    environment: "k3s"
+  # postgresql:
+  #   port: 5432
+  redis:
+    # -- set the redis hostname to talk to
+    # @default -- `{{ .Release.Name }}-redis-master`
+    host: '{{ .Release.Name }}-redis-master'
 
 ingress:
   enabled: true
