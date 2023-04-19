@@ -6,7 +6,7 @@ metadata:
   namespace: traefik
 spec:
   forwardAuth:
-    address: https://authentik.silphco//outpost.goauthentik.io/auth/traefik
+    address: https://authentik.silphco/outpost.goauthentik.io/auth/traefik
     trustForwardHeader: true
     authResponseHeaders:
       - X-authentik-username
@@ -20,5 +20,3 @@ spec:
       - X-authentik-meta-provider
       - X-authentik-meta-app
       - X-authentik-meta-version
-    tls:
-      insecureSkipVerify: true
